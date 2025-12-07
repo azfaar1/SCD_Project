@@ -1,10 +1,12 @@
 function validateRecord(record) {
-  if (!record.name || !record.value) throw new Error('Record must have both name and value.');
-  return true;
+  if (!record.name || typeof record.name !== 'string' || record.name.trim() === '') {
+    throw new Error('Name is required and must be a non-empty string');
+  }
+  if (!record.value || typeof record.value !== 'string' || record.value.trim() === '') {
+    throw new Error('Value is required and must be a non-empty string');
+  }
 }
 
-function generateId() {
-  return Date.now();
-}
-
-module.exports = { validateRecord, generateId };
+module.exports = {
+  validateRecord
+};

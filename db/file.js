@@ -16,4 +16,14 @@ function writeDB(data) {
   fs.writeFileSync(dbFile, JSON.stringify(data, null, 2));
 }
 
-module.exports = { readDB, writeDB };
+// Add this function to get database metadata
+function getDBInfo() {
+  const stats = fs.statSync(dbFile);
+  return {
+    size: stats.size,
+    mtime: stats.mtime,
+    birthtime: stats.birthtime
+  };
+}
+
+module.exports = { readDB, writeDB, getDBInfo };

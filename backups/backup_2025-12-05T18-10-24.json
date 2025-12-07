@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-12-05T18:10:24.649Z",
+  "action": "delete_record",
+  "records": [
+    {
+      "id": "69331e352e55c38d6df3c04d",
+      "name": "azfaar",
+      "value": "2",
+      "createdAt": "2025-12-05T18:02:29.118Z",
+      "updatedAt": "2025-12-05T18:02:29.118Z"
+    }
+  ],
+  "totalRecords": 1
+}
