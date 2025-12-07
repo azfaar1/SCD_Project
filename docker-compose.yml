@@ -1,0 +1,41 @@
+services:
+  mongodb:
+    image: mongo:4.4
+    container_name: nodevault-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - nodevault-network
+
+  nodevault:
+    build: .
+    container_name: nodevault-backend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      MONGODB_URI: "mongodb://admin:password123@mongodb:27017/nodevault?authSource=admin"
+    user: "root"
+    volumes:
+      - ./backups:/app/backups
+      - ./exports:/app/exports
+    depends_on:
+      - mongodb
+    networks:
+      - nodevault-network
+    stdin_open: true
+    tty: true
+
+networks:
+  nodevault-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:

@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-12-07T11:18:43.098Z",
+  "action": "add_record",
+  "records": [
+    {
+      "id": "69356293ce2b5ea140ff6374",
+      "name": "azfaar",
+      "value": "1",
+      "createdAt": "2025-12-07T11:18:43.051Z",
+      "updatedAt": "2025-12-07T11:18:43.051Z"
+    }
+  ],
+  "totalRecords": 1
+}

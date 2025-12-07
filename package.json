@@ -2,5 +2,12 @@
   "dependencies": {
     "dotenv": "^17.2.3",
     "mongodb": "^7.0.0"
+  },
+  "scripts": {
+    "start": "node main.js",
+    "dev": "nodemon main.js",
+    "docker:build": "docker build -t nodevault .",
+    "docker:run": "docker run -p 3000:3000 --env-file .env nodevault"
   }
 }
+
